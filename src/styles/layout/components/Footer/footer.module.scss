@@ -1,0 +1,13 @@
+@import "../../../common";
+
+.footer-full-content{
+    width: 100%;
+    background-color: $background-color-three;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >*{
+        font-size: 12px;
+    }
+}
