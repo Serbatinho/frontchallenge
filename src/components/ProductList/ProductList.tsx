@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 import ProductCard from '../ProductCard/ProductCard';
 import { fetchProducts } from '@/services/productService';
+import styles from '@/styles/layout/components/ProductList/product-list.module.scss';
 
 interface Product {
     id: number;
@@ -22,7 +23,7 @@ const ProductList: React.FC<ProductListProps> = ({ page, rows }) => {
     if (error instanceof Error) return <div>An error occurred: {error.message}</div>;
 
     return (
-        <section className="product-list">
+        <section className={`${styles['list-full-content']}`}>
             {data?.map(product => (
                 <ProductCard
                     key={product.id}

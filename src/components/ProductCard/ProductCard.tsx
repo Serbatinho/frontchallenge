@@ -1,5 +1,6 @@
-import React from 'react';
 import Image from 'next/image';
+import styles from '@/styles/layout/components/ProductCard/product-card.module.scss';
+import CardIcon from './CardIcon';
 
 interface ProductCardProps {
     id: number;
@@ -11,15 +12,16 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, name, description, photo, price }) => {
     return (
-        <article key={id} className="product-card">
-            <header>
-                <Image src={photo} alt={name} width={192} height={143} />
-                <h2>{name}</h2>
-                <p>{description}</p>
+        <article key={id} className={`${styles['card-full-content']}`} >
+            <header className={`${styles['card-header']}`}>
+                <Image src={photo} alt={name} width={192} height={143} className={`${styles['card-image']}`}/>
+                <h2 className={`${styles['card-name']}`}>{name}</h2>
+                <p className={`${styles['card-price']}`}>R${price}</p>
+                <p className={`${styles['card-description']}`}>{description}</p>
             </header>
-            <footer>
-                <p className="price">R${price}</p>
-                <button className="buy-button">COMPRAR</button>
+            <footer className={`${styles['card-footer']}`}>
+                <></>
+                <button className={`${styles['card-button']}`}> <CardIcon /> COMPRAR</button>
             </footer>
         </article>
     );
