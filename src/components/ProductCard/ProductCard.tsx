@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from '@/styles/layout/components/ProductCard/product-card.module.scss';
 import CardIcon from './CardIcon';
+import { useCart } from '@/context/CartContext';
 
 interface ProductCardProps {
     id: number;
@@ -11,6 +12,15 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, name, description, photo, price }) => {
+    const { dispatch } = useCart();
+
+    const handleAddToCart = () => {
+        dispatch({
+            type: 'ADD_PRODUCT',
+            product: { id, name, description, photo, price }
+        });
+    };
+
     return (
         <article key={id} className={`${styles['card-full-content']}`} >
             <header className={`${styles['card-header']}`}>
@@ -20,8 +30,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, description, photo,
                 <p className={`${styles['card-description']}`}>{description}</p>
             </header>
             <footer className={`${styles['card-footer']}`}>
-                <></>
-                <button className={`${styles['card-button']}`}> <CardIcon /> COMPRAR</button>
+                <button onClick={handleAddToCart} className={`${styles['card-button']}`}>
+                    <CardIcon /> COMPRAR
+                </button>
             </footer>
         </article>
     );

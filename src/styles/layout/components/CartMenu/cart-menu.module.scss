@@ -1,0 +1,41 @@
+@import '../../../common';
+
+.cart-full-content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: $hover-shadow;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-menu-header,
+  .cart-menu-footer {
+    padding: 16px;
+  }
+  
+  .cart-menu-content {
+    flex-grow: 1;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .cart-button-container {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+  }
+  
+  .cart-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  

@@ -2,15 +2,18 @@
 
 .header-full-content{
     width: 100%;
-    // height: fit-content;
     height: 10vh;
     background-color: $background-color-two;
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-    >*{
+    >.header-mid-content{
 
         max-width: 1440px;
         width: 100%;
