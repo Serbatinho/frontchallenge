@@ -15,6 +15,13 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
     dispatch({ type: 'REMOVE_PRODUCT', productId });
   };
 
+  const handleQuantityBlur = (productId: number, quantity: number | string) => {
+    const parsedQuantity = Number(quantity);
+    if (isNaN(parsedQuantity) || parsedQuantity <= 0) {
+      dispatch({ type: 'REMOVE_PRODUCT', productId });
+    }
+  };
+
   const handleQuantityChange = (productId: number, quantity: number) => {
     dispatch({ type: 'UPDATE_QUANTITY', productId, quantity });
   };
@@ -28,7 +35,7 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
 
   const decrementQuantity = (productId: number) => {
     const product = state.products.find(p => p.id === productId);
-    if (product && product.quantity > 1) {
+    if (product) {
       handleQuantityChange(productId, product.quantity - 1);
     }
   };
@@ -57,6 +64,7 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
                   type="number" 
                   value={product.quantity} 
                   onChange={(e) => handleQuantityChange(product.id, Number(e.target.value))}
+                  onBlur={(e) => handleQuantityBlur(product.id, e.target.value)}
                   min="1"
                 />
                 <button onClick={() => incrementQuantity(product.id)}>+</button>
