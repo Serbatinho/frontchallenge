@@ -1,6 +1,6 @@
 import Logo from "@/Common/Logo";
 
-import styles from '@/styles/layout/components/Header/header.module.scss';
+import styles from '../../styles/layout/components/Header/header.module.scss';
 
 const Header: React.FC = () => {
     return (
