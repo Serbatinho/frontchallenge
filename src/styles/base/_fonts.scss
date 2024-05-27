@@ -5,18 +5,6 @@ $font-stack: 'montserrat', sans-serif, arial, helvetica, sans-serif;
 *{
     font-family: $font-stack;
     color: #2C2C2C;
-    font-size: clamp(15px, 1.5vw, 18px)
+    // font-size: clamp(15px, 1.5vw, 18px)
+    font-size: 10px;
 }
-
-h1 {
-    font-size: 1.75rem
-}
-
-h2 {
-    font-size: 1.5rem
-}
-
-h3 {
-    font-size: 1.25rem
-}
-

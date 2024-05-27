@@ -6,9 +6,13 @@ const Header: React.FC = () => {
     return (
         <header className={`${styles['header-full-content']}`}>
 
-            <Logo></Logo>
-            
-            <i>Carrinho de Compras</i>
+            <div className={`${styles['header-mid-content']}`}>
+                <Logo></Logo>
+
+                <i>Carrinho de Compras</i>
+
+            </div>
+
 
         </header>
     );
