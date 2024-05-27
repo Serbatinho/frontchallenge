@@ -1,3 +1,4 @@
+import ProductList from "@/components/ProductList/ProductList";
 import styles from "../styles/layout/pages/Home/home.module.scss";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
 
             <div className={`${styles['home-mid-content']}`}>
             <h1>Teste da Silva</h1>
+            <ProductList />
 
             </div>
         </main>
