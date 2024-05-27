@@ -13,7 +13,8 @@ describe('ProductList Component', () => {
   beforeAll(() => {
     mock.onGet('https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=30&sortBy=id&orderBy=DESC').reply(200, {
       products: [
-        { id: 1, name: "Produto Teste", description: "Descrição do Produto Teste", photo: "url-da-imagem", price: "100.00" }
+        { id: 1, name: "Produto Teste", description: "Descrição do Produto Teste", photo: "url-da-imagem", price: "100.00" },
+        
       ]
     });
   });
@@ -29,10 +30,8 @@ describe('ProductList Component', () => {
       </QueryClientProvider>
     );
 
-    // Verifica se o texto de carregamento aparece primeiro
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
 
-    // Espera que os produtos sejam exibidos
     await waitFor(() => {
       expect(screen.getByText('Produto Teste')).toBeInTheDocument();
       expect(screen.getByText('Descrição do Produto Teste')).toBeInTheDocument();
