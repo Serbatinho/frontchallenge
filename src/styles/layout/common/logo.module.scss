@@ -1,0 +1,23 @@
+@import '../../common';
+
+.logo-full-content{
+
+
+    >*{
+        color:$text-color-secondary;
+        display: flex;
+        align-items: flex-end;
+        width: fit-content;
+        gap: 0.5rem;
+        font-size: 4rem;
+        font-weight: 600;
+
+        >*{
+            color:$text-color-secondary;
+            align-self: center;
+            padding-top: 0.5rem;
+            font-size: 2rem;
+            font-weight: lighter;
+        }
+    }
+}

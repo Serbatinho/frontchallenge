@@ -1,0 +1,26 @@
+@import '../../../common';
+
+.header-full-content{
+    width: 100%;
+    background-color: $background-color-two;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    box-sizing: border-box;
+
+    >*{
+
+        max-width: 1440px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    
+        >*{
+            margin: 0px 3vw 0px 3vw;
+        }
+    }
+
+
+}
