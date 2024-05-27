@@ -2,11 +2,12 @@
 
 .header-full-content{
     width: 100%;
+    // height: fit-content;
+    height: 10vh;
     background-color: $background-color-two;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: fit-content;
     box-sizing: border-box;
 
     >*{
@@ -23,4 +24,10 @@
     }
 
 
+}
+
+@media (max-width: 693px) {
+    .header-full-content{
+        height: 8vh;
+    }
 }

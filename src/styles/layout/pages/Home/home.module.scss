@@ -2,9 +2,9 @@
     width: 100%;
     max-width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    // height: fit-content;
+    min-height: 86vh;
     
     
     .home-mid-content{
