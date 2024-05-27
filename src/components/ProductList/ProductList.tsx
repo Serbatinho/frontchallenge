@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
-import axios from 'axios';
+import ProductCard from '../ProductCard/ProductCard';
+import { fetchProducts } from '@/services/productService';
 
 interface Product {
     id: number;
@@ -9,28 +10,30 @@ interface Product {
     price: string;
 }
 
-const fetchProducts = async (): Promise<Product[]> => {
-    const { data } = await axios.get('https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=30&sortBy=id&orderBy=DESC');
-    return data.products;
-};
+interface ProductListProps {
+    page: number;
+    rows: number;
+}
 
-const ProductList: React.FC = () => {
-    const { data, error, isLoading } = useQuery<Product[]>('products', fetchProducts);
+const ProductList: React.FC<ProductListProps> = ({ page, rows }) => {
+    const { data, error, isLoading } = useQuery<Product[]>(['products', page, rows], () => fetchProducts(page, rows));
 
     if (isLoading) return <div>Loading...</div>;
     if (error instanceof Error) return <div>An error occurred: {error.message}</div>;
 
     return (
-        <div>
+        <section className="product-list">
             {data?.map(product => (
-                <div key={product.id}>
-                    <h2>{product.name}</h2>
-                    <p>{product.description}</p>
-                    <img src={product.photo} alt={product.name} />
-                    <p>${product.price}</p>
-                </div>
+                <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    name={product.name}
+                    description={product.description}
+                    photo={product.photo}
+                    price={product.price}
+                />
             ))}
-        </div>
+        </section>
     );
 };
 
