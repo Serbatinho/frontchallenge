@@ -41,7 +41,9 @@
 
   .cart-content {
     flex-grow: 1;
+    max-height: 70%;
     overflow-y: auto;
+    margin-bottom: 194px;
     &::-webkit-scrollbar {
         width: 1px; /* Largura da barra de rolagem */
         background-color: transparent; /* Cor de fundo da barra de rolagem */
@@ -64,10 +66,61 @@
         max-height: 80px;
 
         .cart-item-info{
-            background-color: red;
-            display: flex;
+            margin-left: 15px;
+            width: 80%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr 1fr;
+            gap: 10px;
             flex-direction: row;
             align-items: center;
+
+            >*{
+                overflow: hidden;
+            }
+
+
+            .quantity-controls{
+                display: flex;
+                flex-direction: row;
+                font-size: 15px;
+
+                >*{
+                    border: solid 1.5px $background-color-three;
+                    background-color: $background-color-one;
+                    flex-grow: 1;
+                    width: 15px;
+                    padding: 0.3em 0.6rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .cart-item-minus{
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                }
+
+                .cart-item-number{
+                    padding: 0px;
+                    width: auto;
+                    max-width: 30px;
+                    flex-grow: 1;
+                    box-sizing: border-box;
+                    overflow: hidden;
+                    text-align: center;
+                    -moz-appearance: textfield;
+                }
+
+                .cart-item-plus{
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius: 5px;
+                }
+
+            }
+        }
+
+        .cart-item-close{
+
         }
     }
   }
@@ -77,8 +130,12 @@
     width: 100%;
     min-height: 70px;
     background-color: $background-color-two;
-    display: flex;
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
     flex-direction: column;
+    transition: $std-transition;
 
     >p{
         margin: 0px 8%;
@@ -106,6 +163,7 @@
         color: $text-color-secondary;
         font-size: 1.8rem;
         font-weight: bold;
+        transition: $std-transition;
 
         &:hover{
             background-color: lighten(#000000, 10%);
@@ -116,4 +174,8 @@
             
         }
     }
+}
+
+.cart-close-button{
+    @include close-button;
 }

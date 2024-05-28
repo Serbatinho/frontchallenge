@@ -25,6 +25,26 @@
         >*{
             margin: 0px 3vw 0px 3vw;
         }
+
+        .header-cart-button{
+            background-color: $background-color-one;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: $std-transition;
+
+            &:hover{
+                background-color: darken($background-color-one, 10%);
+                
+            }
+            &:active{
+                background-color: darken($background-color-one, 20%);
+                
+            }
+        }
     }
 
 

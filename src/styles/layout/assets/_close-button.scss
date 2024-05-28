@@ -1,3 +1,19 @@
+@import "../../common";
 @mixin close-button{
-    
+    background-color: #000000;
+    padding: 0.3em 0.5em;
+    border: none;
+    border-radius: 100%;
+    color: $background-color-one;
+    font-size: 2em;
+    transition: $std-transition;
+
+    &:hover{
+        background-color: lighten(#000000, 10%);
+        
+    }
+    &:active{
+        background-color: lighten(#000000, 20%);
+        
+    }
 }

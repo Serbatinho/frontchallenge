@@ -57,7 +57,7 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
     >
       <div className={styles['cart-header']}>
         <h2>Carrinho <span>de compras</span></h2>
-        <button onClick={onClose}>X</button>
+        <button className={styles['cart-close-button']} onClick={onClose}>X</button>
       </div>
       <div className={styles['cart-content']}>
         {state.products.map(product => (
@@ -68,19 +68,20 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
             <div className={styles['cart-item-info']}>
               <p>{product.name}</p>
               <div className={styles['quantity-controls']}>
-                <button onClick={() => decrementQuantity(product.id)}>-</button>
+                <button onClick={() => decrementQuantity(product.id)} className={styles['cart-item-minus']}>-</button>
                 <input 
                   type="number" 
                   value={product.quantity} 
                   onChange={(e) => handleQuantityChange(product.id, e.target.value)}
                   onBlur={(e) => handleQuantityBlur(product.id, e.target.value)}
+                  className={styles['cart-item-number']}
                   />
-                <button onClick={() => incrementQuantity(product.id)}>+</button>
+                <button onClick={() => incrementQuantity(product.id)} className={styles['cart-item-plus']}>+</button>
               </div>
                   <p>R${(Number(product.price) * product.quantity).toFixed(2)}</p>
             </div>
 
-            <button onClick={() => handleRemoveFromCart(product.id)}>X</button>
+            <button onClick={() => handleRemoveFromCart(product.id)} className={styles['cart-item-close']}>X</button>
           </div>
         ))}
 
