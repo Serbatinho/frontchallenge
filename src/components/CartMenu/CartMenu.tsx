@@ -22,21 +22,29 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  const handleQuantityChange = (productId: number, quantity: number) => {
-    dispatch({ type: 'UPDATE_QUANTITY', productId, quantity });
+  const handleQuantityChange = (productId: number, quantity: string) => {
+    const parsedQuantity = Number(quantity);
+    if (!isNaN(parsedQuantity)) {
+      dispatch({ type: 'UPDATE_QUANTITY', productId, quantity: parsedQuantity });
+    }
   };
 
   const incrementQuantity = (productId: number) => {
     const product = state.products.find(p => p.id === productId);
     if (product) {
-      handleQuantityChange(productId, product.quantity + 1);
+      handleQuantityChange(product.id, (product.quantity + 1).toString());
     }
   };
 
   const decrementQuantity = (productId: number) => {
     const product = state.products.find(p => p.id === productId);
     if (product) {
-      handleQuantityChange(productId, product.quantity - 1);
+      const newQuantity = product.quantity - 1;
+      if (newQuantity <= 0) {
+        handleRemoveFromCart(product.id);
+      } else {
+        handleQuantityChange(product.id, newQuantity.toString());
+      }
     }
   };
 
@@ -47,35 +55,38 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       className={styles['cart-full-content']}
     >
-      <div className={styles['cart-menu-header']}>
-        <h2>Carrinho de compras</h2>
+      <div className={styles['cart-header']}>
+        <h2>Carrinho <span>de compras</span></h2>
         <button onClick={onClose}>X</button>
       </div>
-      <div className={styles['cart-menu-content']}>
+      <div className={styles['cart-content']}>
         {state.products.map(product => (
+
           <div key={product.id} className={styles['cart-item']}>
             <Image src={product.photo} alt={product.name} width={50} height={50} />
+
             <div className={styles['cart-item-info']}>
               <p>{product.name}</p>
-              <p>R${(Number(product.price) * product.quantity).toFixed(2)}</p>
               <div className={styles['quantity-controls']}>
                 <button onClick={() => decrementQuantity(product.id)}>-</button>
                 <input 
                   type="number" 
                   value={product.quantity} 
-                  onChange={(e) => handleQuantityChange(product.id, Number(e.target.value))}
+                  onChange={(e) => handleQuantityChange(product.id, e.target.value)}
                   onBlur={(e) => handleQuantityBlur(product.id, e.target.value)}
-                  min="1"
-                />
+                  />
                 <button onClick={() => incrementQuantity(product.id)}>+</button>
               </div>
+                  <p>R${(Number(product.price) * product.quantity).toFixed(2)}</p>
             </div>
+
             <button onClick={() => handleRemoveFromCart(product.id)}>X</button>
           </div>
         ))}
+
       </div>
-      <div className={styles['cart-menu-footer']}>
-        <p>Total: R${state.products.reduce((total, product) => total + (Number(product.price) * product.quantity), 0).toFixed(2)}</p>
+      <div className={styles['cart-footer']}>
+        <p>Total: <span> R${state.products.reduce((total, product) => total + (Number(product.price) * product.quantity), 0).toFixed(2)} </span> </p>
         <button>Finalizar Compra</button>
       </div>
     </motion.div>
