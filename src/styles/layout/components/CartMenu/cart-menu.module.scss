@@ -1,4 +1,5 @@
 @import '../../../common';
+@import '../../assets';
 
 .cart-full-content {
     position: fixed;
@@ -6,36 +7,113 @@
     right: 0;
     width: 400px;
     height: 100%;
-    background-color: white;
+    background-color: $background-color-two;
     box-shadow: $hover-shadow;
     z-index: 1000;
     display: flex;
     flex-direction: column;
+
+    >*{
+        padding: 0px 8%;
+    }
+
   }
   
-  .cart-menu-header,
-  .cart-menu-footer {
-    padding: 16px;
-  }
+
   
-  .cart-menu-content {
-    flex-grow: 1;
-    padding: 16px;
-    overflow-y: auto;
-  }
-  
-  .cart-button-container {
-    position: fixed;
-    top: 16px;
-    right: 16px;
-    z-index: 1000;
-  }
-  
-  .cart-button {
-    background: none;
-    border: none;
-    cursor: pointer;
+  .cart-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    margin: 25px 0px;
+
+    >h2{
+        font-size: 2.2rem;
+        color: $text-color-secondary;
+        width: 50%;
+        >span{
+            font-size: 2.2rem;
+            color: $text-color-secondary;
+            display: inline-block;
+        }
+    }
+  }
+
+  .cart-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 1px; /* Largura da barra de rolagem */
+        background-color: transparent; /* Cor de fundo da barra de rolagem */
+    }
+
+    .cart-item {
+        &:not(:first-child){
+            margin-top: 25px;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0px;
+        background-color: $background-color-one;
+        border-radius: 5px;
+        width: 94%;
+        padding: 3%;
+        max-width: 100%;
+        height: 80px;
+        max-height: 80px;
+
+        .cart-item-info{
+            background-color: red;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
   }
   
+.cart-footer{
+    padding: 0px;
+    width: 100%;
+    min-height: 70px;
+    background-color: $background-color-two;
+    display: flex;
+    flex-direction: column;
+
+    >p{
+        margin: 0px 8%;
+        height: 97px;
+        color: $text-color-secondary;
+        font-size: 1.8rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        >span{
+            color: $text-color-secondary;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+    }
+    >button{
+        border: none;
+        height: 97px;
+        margin: 0px;
+        background-color: #000000;
+        width: 100%;
+        color: $text-color-secondary;
+        font-size: 1.8rem;
+        font-weight: bold;
+
+        &:hover{
+            background-color: lighten(#000000, 10%);
+            
+        }
+        &:active{
+            background-color: lighten(#000000, 20%);
+            
+        }
+    }
+}
