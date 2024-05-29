@@ -29,12 +29,17 @@
         .header-cart-button{
             background-color: $background-color-one;
             border: none;
-            padding: 1rem;
+            padding: 1rem 2.4rem 1rem 1.8rem;
             border-radius: 8px;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
+            font-weight: bold;
             transition: $std-transition;
+
+            >*{
+                font-size: 1.8rem;
+            }
 
             &:hover{
                 background-color: darken($background-color-one, 10%);

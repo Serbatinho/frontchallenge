@@ -117,11 +117,16 @@
                 }
 
             }
+            
         }
 
+        font-size: 4px;
+        position: relative;
         .cart-item-close{
-
+            @include close-button;
         }
+
+
     }
   }
   
