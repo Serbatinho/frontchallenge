@@ -8,3 +8,9 @@ $font-stack: 'montserrat', sans-serif, arial, helvetica, sans-serif;
     // font-size: clamp(15px, 1.5vw, 18px)
     font-size: 10px;
 }
+
+@media (max-width: 693px) {
+    *{
+        font-size: 12px;
+    }
+}

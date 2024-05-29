@@ -2,10 +2,13 @@
 
 .footer-full-content{
     width: 100%;
+    height: 4vh;
+    min-height: 20px;
     background-color: $background-color-three;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-top: auto;
 
     >*{
         font-size: 12px;

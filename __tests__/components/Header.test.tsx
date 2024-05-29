@@ -4,8 +4,10 @@ import Header from '../../src/components/Header/Header';
 describe('Header Component', () => {
   test('renders the logo with the correct text', () => {
     render(<Header />);
-    const logoElement = screen.getByText(/MKS Sistemas/i);
-    expect(logoElement).toBeInTheDocument();
+    const logoPart1 = screen.getByText(/MKS/i);
+    const logoPart2 = screen.getByText(/Sistemas/i);
+    expect(logoPart1).toBeInTheDocument();
+    expect(logoPart2).toBeInTheDocument();
   });
 
   test('renders the cart icon', () => {
