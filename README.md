@@ -37,3 +37,6 @@ Este projeto é uma loja online desenvolvida com Next.js como parte de um desafi
 - npm run build: Compila o projeto para produção.
 - npm start: Inicia o servidor em modo de produção.
 - npm test: Executa os testes unitários.
+
+## Link Vercel
+https://frontchallenge-acvq71261-serbatinhos-projects.vercel.app
