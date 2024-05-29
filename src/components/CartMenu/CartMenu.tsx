@@ -63,10 +63,10 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
         {state.products.map(product => (
 
           <div key={product.id} className={styles['cart-item']}>
-            <Image src={product.photo} alt={product.name} width={50} height={50} />
+            <Image src={product.photo} alt={product.name} width={50} height={50} className={styles['cart-item-image']} />
 
             <div className={styles['cart-item-info']}>
-              <p>{product.name}</p>
+              <p className={styles['cart-item-info-name']}>{product.name}</p>
               <div className={styles['quantity-controls']}>
                 <button onClick={() => decrementQuantity(product.id)} className={styles['cart-item-minus']}>-</button>
                 <input 
@@ -78,7 +78,7 @@ const CartMenu: React.FC<CartMenuProps> = ({ isOpen, onClose }) => {
                   />
                 <button onClick={() => incrementQuantity(product.id)} className={styles['cart-item-plus']}>+</button>
               </div>
-                  <p>R${(Number(product.price) * product.quantity).toFixed(2)}</p>
+                  <p className={styles['cart-item-price']}>R${(Number(product.price) * product.quantity).toFixed(2)}</p>
             </div>
 
             <button onClick={() => handleRemoveFromCart(product.id)} className={styles['cart-item-close']}>X</button>
