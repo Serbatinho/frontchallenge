@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import styles from '@/styles/layout/components/ProductCard/product-card.module.scss';
+import styles from '../../styles/layout/components/ProductCard/product-card.module.scss';
 import CardIcon from './CardIcon';
-import { useCart } from '@/context/CartContext';
+import { useCart } from '../../context/CartContext';
 
 interface ProductCardProps {
     id: number;

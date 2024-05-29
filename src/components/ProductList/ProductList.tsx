@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import ProductCard from '../ProductCard/ProductCard';
-import { fetchProducts } from '@/services/productService';
-import styles from '@/styles/layout/components/ProductList/product-list.module.scss';
+import { fetchProducts } from '../../services/productService';
+import styles from '../../styles/layout/components/ProductList/product-list.module.scss';
 
 interface Product {
     id: number;

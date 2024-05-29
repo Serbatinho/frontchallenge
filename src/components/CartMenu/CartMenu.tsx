@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useCart } from '@/context/CartContext';
+import { useCart } from '../../context/CartContext';
 import Image from 'next/image';
 import styles from '../../styles/layout/components/CartMenu/cart-menu.module.scss';
 

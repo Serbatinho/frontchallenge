@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Logo from "@/common/Logo";
+import Logo from "../../common/Logo";
 import CartMenu from '../CartMenu/CartMenu';
-import { useCart } from '@/context/CartContext';
+import { useCart } from '../../context/CartContext';
 import styles from '../../styles/layout/components/Header/header.module.scss';
 import CartIcon from './CartIcon';
 
